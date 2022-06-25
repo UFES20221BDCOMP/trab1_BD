@@ -3,4 +3,4 @@ class Sauce {
     price: number;
 }
 
-export { Sauce }
+export { Sauce };

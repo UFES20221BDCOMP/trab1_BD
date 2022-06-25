@@ -1,5 +1,5 @@
-import { SaucesRepository } from '../repositories/SaucesRepository';
-import { CreateSauceService } from '../services/CreateSauceService';
+import { SaucesRepository } from '../modules/pizzas/repositories/SaucesRepository';
+import { CreateSauceService } from '../modules/pizzas/services/CreateSauceService';
 import { Router } from 'express';
 
 const saucesRoutes = Router();
