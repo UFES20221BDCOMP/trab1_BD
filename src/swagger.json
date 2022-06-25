@@ -76,6 +76,142 @@
                     }
                 }
             }
+        },
+        "/meats": {
+            "post": {
+                "tags": [
+                    "Meat"
+                ],
+                "sumary": "Create a meat",
+                "description": "Create a new meat",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "name": "meat name sample",
+                                    "price": "meat price sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Meat already exists"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Meat"
+                ],
+                "sumary": "List all meats",
+                "description": "List all meats",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/crusts": {
+            "post": {
+                "tags": [
+                    "Crust"
+                ],
+                "sumary": "Create a crust",
+                "description": "Create a new crust",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "name": "crust name sample",
+                                    "price": "crust price sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Crust already exists"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Crust"
+                ],
+                "sumary": "List all crusts",
+                "description": "List all crusts",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
