@@ -5,9 +5,19 @@ class SaucesRepository implements ISaucesRepository {
 
     private sauces: Sauce[];
 
-    constructor() {
+    private static INSTANCE: SaucesRepository;
+
+    private constructor() {
         this.sauces = [];
     }
+
+    public static getInstance(): SaucesRepository {
+        if(!SaucesRepository.INSTANCE){ //quando ainda nao tem instancia criada
+            SaucesRepository.INSTANCE = new SaucesRepository();
+        }
+        return SaucesRepository.INSTANCE;
+    }
+
 
     create({ name, price }: ICreateSauceDTO): void {
         const sauce = new Sauce();

@@ -1,26 +1,15 @@
-import { SaucesRepository } from '../modules/pizzas/repositories/SaucesRepository';
-import { CreateSauceService } from '../modules/pizzas/services/CreateSauceService';
 import { Router } from 'express';
+import { createSauceController } from '../modules/pizzas/useCases/createSauce';
+import { listSaucesController } from '../modules/pizzas/useCases/listSauces';
 
 const saucesRoutes = Router();
 
-const saucesRepository = new SaucesRepository();
-
 saucesRoutes.post("/", (request, response) => {
-    const { name, price } = request.body;
-
-    const createSauceService = new CreateSauceService(saucesRepository);
-
-    createSauceService.execute({ name, price });
-
-    return response.status(201).send();
+    return createSauceController.handle(request, response);
 });
 
 saucesRoutes.get("/", (request, response) => {
-    const all = saucesRepository.list();
-
-    return response.json(all);
+    return listSaucesController.handle(request, response);
 })
-
 
 export { saucesRoutes };

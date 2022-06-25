@@ -1,11 +1,11 @@
-import { ISaucesRepository } from "../repositories/ISaucesRepository";
+import { ISaucesRepository } from "../../repositories/ISaucesRepository";
 
 interface IRequest {
     name: string;
     price: number;
 }
 
-class CreateSauceService {
+class CreateSauceUseCase {
     constructor(private saucesRepository: ISaucesRepository) { }
 
     execute({ name, price }: IRequest): void {
@@ -20,4 +20,4 @@ class CreateSauceService {
     }
 }
 
-export { CreateSauceService }
+export { CreateSauceUseCase }
