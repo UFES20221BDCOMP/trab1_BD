@@ -1,18 +1,18 @@
-import { IMeatsRepository } from "../repositories/IMeatsRepository";
+import { IMeatsRepository } from "../../repositories/IMeatsRepository";
 
 interface IRequest {
     name: string;
     price: number;
 }
 
-class CreateMeatService {
-    constructor(private meatsRepository: IMeatsRepository){}
-    
-    execute({name, price}: IRequest): void {
+class CreateMeatUseCase {
+    constructor(private meatsRepository: IMeatsRepository) { }
+
+    execute({ name, price }: IRequest): void {
 
         const meatAlreadyExists = this.meatsRepository.findByName(name);
 
-        if(meatAlreadyExists){
+        if (meatAlreadyExists) {
             throw new Error("Meat already exists");
         }
         this.meatsRepository.create({
@@ -22,4 +22,4 @@ class CreateMeatService {
     }
 }
 
-export { CreateMeatService };
+export { CreateMeatUseCase };

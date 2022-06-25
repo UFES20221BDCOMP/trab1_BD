@@ -1,24 +1,16 @@
 import { Router } from "express";
-import { MeatsRepository } from "../modules/pizzas/repositories/MeatsRepository";
-import { CreateMeatService } from "../modules/pizzas/services/CreateMeatService";
+import { MeatsRepository } from "../modules/pizzas/repositories/implementations/MeatsRepository";
+import { createMeatController } from "../modules/pizzas/useCases/createMeat";
+import { listMeatsController } from "../modules/pizzas/useCases/listMeat";
 
 const meatsRoutes = Router();
 
-const meatsRepository = new MeatsRepository();
-
 meatsRoutes.post("/", (request, response) => {
-    const {name, price} =  request.body;
-    const createMeatService = new CreateMeatService(meatsRepository);
-
-    createMeatService.execute({name, price});
-
-    return response.status(201).send();
+    return createMeatController.handle(request, response);
 });
 
 meatsRoutes.get("/", (request, response) => {
-    const all = meatsRepository.list();
-
-    return response.json(all);
+    return listMeatsController.handle(request, response);
 })
 
 export { meatsRoutes }

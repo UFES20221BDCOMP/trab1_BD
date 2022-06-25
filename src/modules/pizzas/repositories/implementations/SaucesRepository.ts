@@ -1,5 +1,5 @@
-import { Sauce } from "../model/Sauce";
-import { ICreateSauceDTO, ISaucesRepository } from "./ISaucesRepository";
+import { Sauce } from "../../model/Sauce";
+import { ICreateSauceDTO, ISaucesRepository } from ".././ISaucesRepository";
 
 class SaucesRepository implements ISaucesRepository {
 
@@ -12,7 +12,7 @@ class SaucesRepository implements ISaucesRepository {
     }
 
     public static getInstance(): SaucesRepository {
-        if(!SaucesRepository.INSTANCE){ //quando ainda nao tem instancia criada
+        if (!SaucesRepository.INSTANCE) { //quando ainda nao tem instancia criada
             SaucesRepository.INSTANCE = new SaucesRepository();
         }
         return SaucesRepository.INSTANCE;

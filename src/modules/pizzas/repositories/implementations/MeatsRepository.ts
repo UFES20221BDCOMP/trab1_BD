@@ -1,16 +1,26 @@
-import { Meat } from "../model/Meat";
-import { IMeatsRepository, ICreateMeatsDTO } from "./IMeatsRepository";
+import { Meat } from "../../model/Meat";
+import { IMeatsRepository, ICreateMeatsDTO } from ".././IMeatsRepository";
 
 class MeatsRepository implements IMeatsRepository {
     private meats: Meat[];
 
-    constructor(){
+    private static INSTANCE: MeatsRepository;
+
+    private constructor() {
         this.meats = [];
     }
+
+    public static getInstance(): MeatsRepository {
+        if (!MeatsRepository.INSTANCE) { //quando ainda nao tem instancia criada
+            MeatsRepository.INSTANCE = new MeatsRepository();
+        }
+        return MeatsRepository.INSTANCE;
+    }
+
     create({ name, price }: ICreateMeatsDTO): void {
         const meat = new Meat();
 
-        Object.assign(meat,{
+        Object.assign(meat, {
             name,
             price,
         })
