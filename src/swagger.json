@@ -1,0 +1,81 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Trabalho 1 Banco de Dados Documentation",
+        "description": "This is an API Rent",
+        "version": "1.0.0",
+        "contact": {
+            "email": "henrycky_wottikosky@hotmail.com"
+        }
+    },
+    "paths": {
+        "/sauces": {
+            "post": {
+                "tags": [
+                    "Sauce"
+                ],
+                "sumary": "Create a sauce",
+                "description": "Create a new sauce",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "name": "sauce name sample",
+                                    "price": "sauce price sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Sauce already exists"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Sauce"
+                ],
+                "sumary": "List all sauces",
+                "description": "List all sauces",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

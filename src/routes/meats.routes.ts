@@ -1,7 +1,6 @@
 import { Router } from "express";
-import { MeatsRepository } from "../modules/pizzas/repositories/implementations/MeatsRepository";
 import { createMeatController } from "../modules/pizzas/useCases/createMeat";
-import { listMeatsController } from "../modules/pizzas/useCases/listMeat";
+import { listMeatsController } from "../modules/pizzas/useCases/listMeats";
 
 const meatsRoutes = Router();
 
