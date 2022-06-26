@@ -5,7 +5,10 @@
         "description": "This is an API Rent",
         "version": "1.0.0",
         "contact": {
-            "email": "henrycky_wottikosky@hotmail.com"
+            "email": [
+                "j.caldeira.j@gmail.com",
+                "henrycky_wottikosky@hotmail.com"
+            ]
         }
     },
     "paths": {
@@ -14,7 +17,7 @@
                 "tags": [
                     "Sauce"
                 ],
-                "sumary": "Create a sauce",
+                "summary": "Create a sauce",
                 "description": "Create a new sauce",
                 "requestBody": {
                     "content": {
@@ -50,7 +53,7 @@
                 "tags": [
                     "Sauce"
                 ],
-                "sumary": "List all sauces",
+                "summary": "List all sauces",
                 "description": "List all sauces",
                 "responses": {
                     "200": {
@@ -82,7 +85,7 @@
                 "tags": [
                     "Meat"
                 ],
-                "sumary": "Create a meat",
+                "summary": "Create a meat",
                 "description": "Create a new meat",
                 "requestBody": {
                     "content": {
@@ -118,7 +121,7 @@
                 "tags": [
                     "Meat"
                 ],
-                "sumary": "List all meats",
+                "summary": "List all meats",
                 "description": "List all meats",
                 "responses": {
                     "200": {
@@ -150,7 +153,7 @@
                 "tags": [
                     "Crust"
                 ],
-                "sumary": "Create a crust",
+                "summary": "Create a crust",
                 "description": "Create a new crust",
                 "requestBody": {
                     "content": {
@@ -186,8 +189,76 @@
                 "tags": [
                     "Crust"
                 ],
-                "sumary": "List all crusts",
+                "summary": "List all crusts",
                 "description": "List all crusts",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sizes": {
+            "post": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "Create a size",
+                "description": "Create a new size",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "name": "size name sample",
+                                    "price": "size price sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Size already exists"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "List all sizes",
+                "description": "List all sizes",
                 "responses": {
                     "200": {
                         "description": "Success",
