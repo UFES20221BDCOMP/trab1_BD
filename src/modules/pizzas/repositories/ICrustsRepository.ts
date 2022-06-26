@@ -6,9 +6,9 @@ interface ICreateCrustsDTO {
 }
 
 interface ICrustsRepository {
-    findByName(name: string): Crust;
-    list(): Crust[];
-    create({ name, price }: ICreateCrustsDTO): void;
+    findByName(name: string): Promise<Crust>;
+    list(): Promise<Crust[]>;
+    create({ name, price }: ICreateCrustsDTO): Promise<void>;
 }
 
 export { ICrustsRepository, ICreateCrustsDTO }

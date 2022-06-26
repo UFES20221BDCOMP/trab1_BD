@@ -2,7 +2,6 @@ import { inject, injectable } from "tsyringe";
 import { Sauce } from "../../entities/Sauce";
 import { ISaucesRepository } from "../../repositories/ISaucesRepository";
 
-
 @injectable()
 class ListSaucesUseCase {
     constructor(

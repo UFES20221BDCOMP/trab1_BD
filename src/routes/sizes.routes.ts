@@ -1,15 +1,14 @@
 import { Router } from "express";
-import { createSizeController } from "../modules/pizzas/useCases/createSize";
-import { listSizesController } from "../modules/pizzas/useCases/listSizes";
+import { CreateSizeController } from "../modules/pizzas/useCases/createSize/CreateSizeController";
+import { ListSizesController } from "../modules/pizzas/useCases/listSizes/ListSizesController";
 
 const sizesRoutes = Router();
 
-sizesRoutes.post("/", (request, response) => {
-    return createSizeController.handle(request, response);
-});
+const createSizeController = new CreateSizeController();
+const listSizesController = new ListSizesController();
 
-sizesRoutes.get("/", (request, response) => {
-    return listSizesController.handle(request, response);
-})
+sizesRoutes.post("/", createSizeController.handle);
+
+sizesRoutes.get("/", listSizesController.handle);
 
 export { sizesRoutes }

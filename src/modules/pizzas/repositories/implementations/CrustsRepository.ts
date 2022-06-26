@@ -1,39 +1,33 @@
+import { getRepository, Repository } from "typeorm";
 import { Crust } from "../../entities/Crust";
 import { ICrustsRepository, ICreateCrustsDTO } from ".././ICrustsRepository";
 
 class CrustsRepository implements ICrustsRepository {
-    private crusts: Crust[];
 
-    private static INSTANCE: CrustsRepository;
+    private repository: Repository<Crust>
 
-    private constructor() {
-        this.crusts = [];
+    constructor() {
+        this.repository = getRepository(Crust);
     }
 
-    public static getInstance(): CrustsRepository {
-        if (!CrustsRepository.INSTANCE) { //quando ainda nao tem instancia criada
-            CrustsRepository.INSTANCE = new CrustsRepository();
-        }
-        return CrustsRepository.INSTANCE;
-    }
+    async create({ name, price }: ICreateCrustsDTO): Promise<void> {
 
-    create({ name, price }: ICreateCrustsDTO): void {
-        const crust = new Crust();
-
-        Object.assign(crust, {
+        const crust = this.repository.create({
             name,
-            price,
+            price
         })
 
-        this.crusts.push(crust);
+        await this.repository.save(crust);
     }
 
-    list(): Crust[] {
-        return this.crusts
+    async list(): Promise<Crust[]> {
+
+        const crusts = await this.repository.find();
+        return crusts;
     }
 
-    findByName(name: string): Crust {
-        const crust = this.crusts.find((crust) => crust.name === name);
+    async findByName(name: string): Promise<Crust> {
+        const crust = await this.repository.findOne({ name });
         return crust;
     }
 }

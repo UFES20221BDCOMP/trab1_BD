@@ -1,12 +1,15 @@
+import { inject, injectable } from "tsyringe";
 import { Crust } from "../../entities/Crust";
 import { ICrustsRepository } from "../../repositories/ICrustsRepository";
 
-
+@injectable()
 class ListCrustsUseCase {
-    constructor(private crustsRepository: ICrustsRepository) { }
+    constructor(
+        @inject("CrustsRepository")
+        private crustsRepository: ICrustsRepository) { }
 
-    execute(): Crust[] {
-        const crusts = this.crustsRepository.list();
+    async execute(): Promise<Crust[]> {
+        const crusts = await this.crustsRepository.list();
 
         return crusts;
     }

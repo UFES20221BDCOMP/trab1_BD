@@ -10,14 +10,6 @@ class SaucesRepository implements ISaucesRepository {
         this.repository = getRepository(Sauce);
     }
 
-    /*public static getInstance(): SaucesRepository {
-        if (!SaucesRepository.INSTANCE) { //quando ainda nao tem instancia criada
-            SaucesRepository.INSTANCE = new SaucesRepository();
-        }
-        return SaucesRepository.INSTANCE;
-    }*/
-
-
     async create({ name, price }: ICreateSauceDTO): Promise<void> {
 
         const sauce = this.repository.create({

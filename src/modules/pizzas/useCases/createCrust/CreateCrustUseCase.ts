@@ -1,3 +1,4 @@
+import { inject, injectable } from "tsyringe"
 import { ICrustsRepository } from "../../repositories/ICrustsRepository";
 
 interface IRequest {
@@ -5,17 +6,20 @@ interface IRequest {
     price: number;
 }
 
+@injectable()
 class CreateCrustUseCase {
-    constructor(private crustsRepository: ICrustsRepository) { }
+    constructor(
+        @inject("CrustsRepository")
+        private crustsRepository: ICrustsRepository) { }
 
-    execute({ name, price }: IRequest): void {
+    async execute({ name, price }: IRequest): Promise<void> {
 
-        const crustAlreadyExists = this.crustsRepository.findByName(name);
+        const crustAlreadyExists = await this.crustsRepository.findByName(name);
 
         if (crustAlreadyExists) {
             throw new Error("Crust already exists");
         }
-        this.crustsRepository.create({
+        await this.crustsRepository.create({
             name,
             price,
         });

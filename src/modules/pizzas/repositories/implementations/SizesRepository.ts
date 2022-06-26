@@ -1,36 +1,31 @@
+import { getRepository, Repository } from "typeorm";
 import { Size } from "../../entities/Size";
 import { ICreateSizeDTO, ISizesRepository } from "../ISizesRepository";
 
 class SizesRepository implements ISizesRepository {
-    private sizes: Size[];
 
-    private static INSTANCE: SizesRepository;
+    private repository: Repository<Size>;
 
-    private constructor() {
-        this.sizes = [];
+    constructor() {
+        this.repository = getRepository(Size);
     }
 
-    public static getInstance(): SizesRepository {
-        if (!SizesRepository.INSTANCE) {
-            SizesRepository.INSTANCE = new SizesRepository();
-        }
-        return SizesRepository.INSTANCE;
+    async create({ name, price }: ICreateSizeDTO): Promise<void> {
+        const size = this.repository.create({
+            name,
+            price
+        })
+
+        await this.repository.save(size);
     }
 
-    create({ name, price }: ICreateSizeDTO): void {
-        const size = new Size();
-
-        Object.assign(size, { name, price });
-
-        this.sizes.push(size);
+    async list(): Promise<Size[]> {
+        const sizes = await this.repository.find();
+        return sizes;
     }
 
-    list(): Size[] {
-        return this.sizes
-    }
-
-    findByName(name: string): Size {
-        const size = this.sizes.find(size => size.name === name);
+    async findByName(name: string): Promise<Size> {
+        const size = await this.repository.findOne({ name });
         return size;
     }
 

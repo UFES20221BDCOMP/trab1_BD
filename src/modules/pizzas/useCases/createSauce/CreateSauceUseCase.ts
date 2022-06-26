@@ -20,7 +20,10 @@ class CreateSauceUseCase {
             throw new Error("Sauce already exists!");
         }
 
-        this.saucesRepository.create({ name, price });
+        await this.saucesRepository.create({
+            name,
+            price
+        });
     }
 }
 

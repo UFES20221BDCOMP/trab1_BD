@@ -11,7 +11,10 @@ class CreateMeatController {
 
         const createMeatUseCase = container.resolve(CreateMeatUseCase);
 
-        await createMeatUseCase.execute({ name, price });
+        await createMeatUseCase.execute({
+            name,
+            price
+        });
 
         return response.status(201).send();
     }

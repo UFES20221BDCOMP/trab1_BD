@@ -6,9 +6,9 @@ interface ICreateSizeDTO {
 }
 
 interface ISizesRepository {
-    findByName(name: string): Size;
-    list(): Size[];
-    create({ name, price }: ICreateSizeDTO): void;
+    findByName(name: string): Promise<Size>;
+    list(): Promise<Size[]>;
+    create({ name, price }: ICreateSizeDTO): Promise<void>;
 }
 
 export { ISizesRepository, ICreateSizeDTO };
