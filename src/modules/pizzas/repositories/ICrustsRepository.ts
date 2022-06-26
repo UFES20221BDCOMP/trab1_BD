@@ -1,4 +1,4 @@
-import { Crust } from "../model/Crust";
+import { Crust } from "../entities/Crust";
 
 interface ICreateCrustsDTO {
     name: string;

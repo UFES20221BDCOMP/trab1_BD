@@ -1,4 +1,4 @@
-import { Crust } from "../../model/Crust";
+import { Crust } from "../../entities/Crust";
 import { ICrustsRepository, ICreateCrustsDTO } from ".././ICrustsRepository";
 
 class CrustsRepository implements ICrustsRepository {

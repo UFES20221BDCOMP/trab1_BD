@@ -1,4 +1,4 @@
-import { Meat } from "../../model/Meat";
+import { Meat } from "../../entities/Meat";
 import { IMeatsRepository, ICreateMeatsDTO } from ".././IMeatsRepository";
 
 class MeatsRepository implements IMeatsRepository {

@@ -1,10 +1,10 @@
-import { Size } from "../../model/Size";
+import { Size } from "../../entities/Size";
 import { ISizesRepository } from "../../repositories/ISizesRepository";
 
 class ListSizesUseCase {
-    constructor(private sizesRepository: ISizesRepository) {}
+    constructor(private sizesRepository: ISizesRepository) { }
 
-    execute(): Size[]{
+    execute(): Size[] {
         const sizes = this.sizesRepository.list();
 
         return sizes;

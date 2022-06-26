@@ -1,4 +1,4 @@
-import { Sauce } from "../model/Sauce"
+import { Sauce } from "../entities/Sauce"
 
 //DTO => Data transfer object
 interface ICreateSauceDTO {
@@ -7,9 +7,9 @@ interface ICreateSauceDTO {
 }
 
 interface ISaucesRepository {
-    findByName(name: string): Sauce;
-    list(): Sauce[];
-    create({ name, price }: ICreateSauceDTO): void;
+    findByName(name: string): Promise<Sauce>;
+    list(): Promise<Sauce[]>;
+    create({ name, price }: ICreateSauceDTO): Promise<void>;
 }
 
 export { ISaucesRepository, ICreateSauceDTO }

@@ -8,9 +8,9 @@ interface IRequest {
 class CreateSauceUseCase {
     constructor(private saucesRepository: ISaucesRepository) { }
 
-    execute({ name, price }: IRequest): void {
+    async execute({ name, price }: IRequest): Promise<void> {
 
-        const sauceAlreadyExists = this.saucesRepository.findByName(name);
+        const sauceAlreadyExists = await this.saucesRepository.findByName(name);
 
         if (sauceAlreadyExists) {
             throw new Error("Sauce already exists!");

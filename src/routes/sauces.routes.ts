@@ -1,4 +1,4 @@
-import { createSauceController } from '../modules/pizzas/useCases/createSauce';
+import createSauceController from '../modules/pizzas/useCases/createSauce';
 import { listSaucesController } from '../modules/pizzas/useCases/listSauces';
 import { Router } from 'express';
 import multer from 'multer';
@@ -11,7 +11,7 @@ const upload = multer({
 });
 
 saucesRoutes.post("/", (request, response) => {
-    return createSauceController.handle(request, response);
+    return createSauceController().handle(request, response);
 });
 
 saucesRoutes.get("/", (request, response) => {

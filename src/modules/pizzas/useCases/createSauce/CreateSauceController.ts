@@ -1,14 +1,14 @@
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 import { CreateSauceUseCase } from './CreateSauceUseCase';
 
-class CreateSauceController{
+class CreateSauceController {
 
-    constructor(private createSauceUseCase: CreateSauceUseCase){}
+    constructor(private createSauceUseCase: CreateSauceUseCase) { }
 
-    handle(request: Request, response: Response):Response {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { name, price } = request.body;
 
-        this.createSauceUseCase.execute({ name, price });
+        await this.createSauceUseCase.execute({ name, price });
 
         return response.status(201).send();
     }

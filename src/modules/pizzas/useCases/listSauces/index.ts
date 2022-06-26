@@ -3,7 +3,7 @@ import { SaucesRepository } from "../../repositories/implementations/SaucesRepos
 import { ListSaucesController } from "./ListSaucesController";
 import { ListSaucesUseCase } from "./ListSaucesUseCase";
 
-const saucesRepository = SaucesRepository.getInstance();
+const saucesRepository = null;
 const listSaucesUseCase = new ListSaucesUseCase(saucesRepository);
 const listSaucesController = new ListSaucesController(listSaucesUseCase);
 

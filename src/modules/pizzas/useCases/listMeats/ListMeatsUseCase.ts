@@ -1,4 +1,4 @@
-import { Meat } from "../../model/Meat";
+import { Meat } from "../../entities/Meat";
 import { IMeatsRepository } from "../../repositories/IMeatsRepository";
 
 

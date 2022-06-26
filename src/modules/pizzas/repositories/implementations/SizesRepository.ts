@@ -1,31 +1,31 @@
-import { Size } from "../../model/Size";
+import { Size } from "../../entities/Size";
 import { ICreateSizeDTO, ISizesRepository } from "../ISizesRepository";
 
-class SizesRepository implements ISizesRepository{
+class SizesRepository implements ISizesRepository {
     private sizes: Size[];
 
     private static INSTANCE: SizesRepository;
 
-    private constructor(){
+    private constructor() {
         this.sizes = [];
     }
 
-    public static getInstance(): SizesRepository{
-        if (!SizesRepository.INSTANCE){
+    public static getInstance(): SizesRepository {
+        if (!SizesRepository.INSTANCE) {
             SizesRepository.INSTANCE = new SizesRepository();
         }
         return SizesRepository.INSTANCE;
     }
 
-    create ({name, price}: ICreateSizeDTO):void{
+    create({ name, price }: ICreateSizeDTO): void {
         const size = new Size();
 
-        Object.assign(size, {name, price});
+        Object.assign(size, { name, price });
 
         this.sizes.push(size);
     }
 
-    list(): Size[]{
+    list(): Size[] {
         return this.sizes
     }
 
@@ -38,4 +38,4 @@ class SizesRepository implements ISizesRepository{
 
 }
 
-export {SizesRepository}
+export { SizesRepository }

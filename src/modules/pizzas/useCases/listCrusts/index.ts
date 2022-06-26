@@ -1,6 +1,6 @@
 import { CrustsRepository } from "../../repositories/implementations/CrustsRepository";
 import { ListCrustsUseCase } from "./ListCrustsUseCase";
-import { ListCrustsController } from "./ListCrutsController";
+import { ListCrustsController } from "./ListCrustsController";
 
 const crustsRepository = CrustsRepository.getInstance();
 const listCrustsUseCase = new ListCrustsUseCase(crustsRepository);

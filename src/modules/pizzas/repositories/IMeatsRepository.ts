@@ -1,4 +1,4 @@
-import { Meat } from "../model/Meat";
+import { Meat } from "../entities/Meat";
 
 interface ICreateMeatsDTO {
     name: string;
@@ -8,7 +8,7 @@ interface ICreateMeatsDTO {
 interface IMeatsRepository {
     findByName(name: string): Meat;
     list(): Meat[];
-    create({name, price}: ICreateMeatsDTO): void;
+    create({ name, price }: ICreateMeatsDTO): void;
 }
 
-export {IMeatsRepository, ICreateMeatsDTO}
+export { IMeatsRepository, ICreateMeatsDTO }

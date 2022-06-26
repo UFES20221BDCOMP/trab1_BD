@@ -1,41 +1,41 @@
-import { Sauce } from "../../model/Sauce";
+import { getRepository, Repository } from "typeorm";
+import { Sauce } from "../../entities/Sauce";
 import { ICreateSauceDTO, ISaucesRepository } from ".././ISaucesRepository";
 
 class SaucesRepository implements ISaucesRepository {
 
-    private sauces: Sauce[];
+    private repository: Repository<Sauce>;
 
-    private static INSTANCE: SaucesRepository;
-
-    private constructor() {
-        this.sauces = [];
+    constructor() {
+        this.repository = getRepository(Sauce);
     }
 
-    public static getInstance(): SaucesRepository {
+    /*public static getInstance(): SaucesRepository {
         if (!SaucesRepository.INSTANCE) { //quando ainda nao tem instancia criada
             SaucesRepository.INSTANCE = new SaucesRepository();
         }
         return SaucesRepository.INSTANCE;
-    }
+    }*/
 
 
-    create({ name, price }: ICreateSauceDTO): void {
-        const sauce = new Sauce();
+    async create({ name, price }: ICreateSauceDTO): Promise<void> {
 
-        Object.assign(sauce, {
+        const sauce = this.repository.create({
             name,
             price
         })
 
-        this.sauces.push(sauce);
+        await this.repository.save(sauce);
     }
 
-    list(): Sauce[] {
-        return this.sauces
+    async list(): Promise<Sauce[]> {
+
+        const sauces = await this.repository.find();
+        return sauces;
     }
 
-    findByName(name: string): Sauce {
-        const sauce = this.sauces.find((sauce) => sauce.name === name);
+    async findByName(name: string): Promise<Sauce> {
+        const sauce = await this.repository.findOne({ name });
         return sauce;
     }
 

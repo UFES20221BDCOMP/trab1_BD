@@ -1,14 +1,14 @@
-import { Size } from "../model/Size";
+import { Size } from "../entities/Size";
 
-interface ICreateSizeDTO{
+interface ICreateSizeDTO {
     name: string;
     price: number;
 }
 
-interface ISizesRepository{
+interface ISizesRepository {
     findByName(name: string): Size;
     list(): Size[];
     create({ name, price }: ICreateSizeDTO): void;
 }
 
-export{ISizesRepository, ICreateSizeDTO};
+export { ISizesRepository, ICreateSizeDTO };

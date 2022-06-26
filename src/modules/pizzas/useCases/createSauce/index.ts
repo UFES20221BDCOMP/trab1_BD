@@ -2,10 +2,12 @@ import { SaucesRepository } from "../../repositories/implementations/SaucesRepos
 import { CreateSauceController } from "./CreateSauceController";
 import { CreateSauceUseCase } from "./CreateSauceUseCase";
 
-const saucesRepository = SaucesRepository.getInstance();
+export default (): CreateSauceController => {
+    const saucesRepository = new SaucesRepository();
 
-const createSauceUseCase = new CreateSauceUseCase(saucesRepository);
+    const createSauceUseCase = new CreateSauceUseCase(saucesRepository);
 
-const createSauceController = new CreateSauceController(createSauceUseCase);
+    const createSauceController = new CreateSauceController(createSauceUseCase);
 
-export { createSauceController };
+    return createSauceController;
+}
