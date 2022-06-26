@@ -5,6 +5,7 @@ import { ListMeatsController } from "../modules/pizzas/useCases/listMeats/ListMe
 const meatsRoutes = Router();
 
 const createMeatController = new CreateMeatController();
+
 const listMeatsController = new ListMeatsController();
 
 meatsRoutes.post("/", createMeatController.handle);

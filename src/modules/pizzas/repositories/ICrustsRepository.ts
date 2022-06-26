@@ -5,6 +5,7 @@ interface ICreateCrustsDTO {
     price: number;
 }
 
+//ações que poderão ser feitas através do Insomnia
 interface ICrustsRepository {
     findByName(name: string): Promise<Crust>;
     list(): Promise<Crust[]>;

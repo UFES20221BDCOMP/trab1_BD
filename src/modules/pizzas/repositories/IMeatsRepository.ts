@@ -5,6 +5,7 @@ interface ICreateMeatsDTO {
     price: number;
 }
 
+//ações que poderão ser feitas através do Insomnia
 interface IMeatsRepository {
     findByName(name: string): Promise<Meat>;
     list(): Promise<Meat[]>;

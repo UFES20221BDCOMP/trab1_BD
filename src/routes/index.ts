@@ -7,6 +7,8 @@ import { ordersRoutes } from './order.routes';
 
 const router = Router();
 
+//contém a explicitação de todos os caminhos dos arquivos .routes.ts
+
 router.use("/sauces", saucesRoutes);
 
 router.use("/meats", meatsRoutes);

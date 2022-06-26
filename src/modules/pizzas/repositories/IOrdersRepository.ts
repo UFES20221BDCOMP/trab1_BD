@@ -13,6 +13,7 @@ interface ICreateOrderDTO {
     totalPrice: number;
 }
 
+//ações que poderão ser feitas através do Insomnia
 interface IOrdersRepository {
     findByName(clientName: string): Promise<Order>;
     list(): Promise<Order[]>;

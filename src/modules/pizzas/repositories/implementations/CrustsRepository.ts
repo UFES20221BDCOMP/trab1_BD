@@ -10,6 +10,7 @@ class CrustsRepository implements ICrustsRepository {
         this.repository = getRepository(Crust);
     }
 
+    //criação de instâncias
     async create({ name, price }: ICreateCrustsDTO): Promise<void> {
 
         const crust = this.repository.create({
@@ -20,12 +21,14 @@ class CrustsRepository implements ICrustsRepository {
         await this.repository.save(crust);
     }
 
+    //retorna lista das bordas registradas
     async list(): Promise<Crust[]> {
 
         const crusts = await this.repository.find();
         return crusts;
     }
 
+    //utilizado para que não exitam isntâncias repetidas
     async findByName(name: string): Promise<Crust> {
         const crust = await this.repository.findOne({ name });
         return crust;

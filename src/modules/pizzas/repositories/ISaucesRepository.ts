@@ -6,6 +6,7 @@ interface ICreateSauceDTO {
     price: number;
 }
 
+//ações que poderão ser feitas através do Insomnia
 interface ISaucesRepository {
     findByName(name: string): Promise<Sauce>;
     list(): Promise<Sauce[]>;

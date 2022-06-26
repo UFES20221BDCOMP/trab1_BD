@@ -9,8 +9,8 @@ const createOrderController = new CreateOrderController();
 
 const createListController = new ListOrdersController();
 
-ordersRoutes.post("/orders", createOrderController.handle);
+ordersRoutes.post("/", createOrderController.handle);
 
-ordersRoutes.get("/orders", createListController.handle);
+ordersRoutes.get("/", createListController.handle);
 
 export { ordersRoutes };

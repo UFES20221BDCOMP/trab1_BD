@@ -5,6 +5,7 @@ interface ICreateSizeDTO {
     price: number;
 }
 
+//ações que poderão ser feitas através do Insomnia
 interface ISizesRepository {
     findByName(name: string): Promise<Size>;
     list(): Promise<Size[]>;
