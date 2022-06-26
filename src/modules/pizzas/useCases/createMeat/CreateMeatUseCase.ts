@@ -1,3 +1,4 @@
+import { inject, injectable } from "tsyringe";
 import { IMeatsRepository } from "../../repositories/IMeatsRepository";
 
 interface IRequest {
@@ -5,17 +6,20 @@ interface IRequest {
     price: number;
 }
 
+@injectable()
 class CreateMeatUseCase {
-    constructor(private meatsRepository: IMeatsRepository) { }
+    constructor(
+        @inject("MeatsRepository")
+        private meatsRepository: IMeatsRepository) { }
 
-    execute({ name, price }: IRequest): void {
+    async execute({ name, price }: IRequest): Promise<void> {
 
-        const meatAlreadyExists = this.meatsRepository.findByName(name);
+        const meatAlreadyExists = await this.meatsRepository.findByName(name);
 
         if (meatAlreadyExists) {
             throw new Error("Meat already exists");
         }
-        this.meatsRepository.create({
+        await this.meatsRepository.create({
             name,
             price,
         });

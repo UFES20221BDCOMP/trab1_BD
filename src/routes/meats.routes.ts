@@ -1,15 +1,14 @@
 import { Router } from "express";
-import { createMeatController } from "../modules/pizzas/useCases/createMeat";
-import { listMeatsController } from "../modules/pizzas/useCases/listMeats";
+import { CreateMeatController } from "../modules/pizzas/useCases/createMeat/CreateMeatController";
+import { ListMeatsController } from "../modules/pizzas/useCases/listMeats/ListMeatsController";
 
 const meatsRoutes = Router();
 
-meatsRoutes.post("/", (request, response) => {
-    return createMeatController.handle(request, response);
-});
+const createMeatController = new CreateMeatController();
+const listMeatsController = new ListMeatsController();
 
-meatsRoutes.get("/", (request, response) => {
-    return listMeatsController.handle(request, response);
-})
+meatsRoutes.post("/", createMeatController.handle);
+
+meatsRoutes.get("/", listMeatsController.handle);
 
 export { meatsRoutes }

@@ -1,15 +1,19 @@
 import fs from "fs";
 import { parse as csvParse } from "csv-parse";
 import { ISaucesRepository } from "../../repositories/ISaucesRepository";
+import { inject, injectable } from "tsyringe";
 
 interface IImportSauce {
     name: string,
     price: number,
 }
 
+@injectable()
 class ImportSauceUseCase {
 
-    constructor(private saucesRepository: ISaucesRepository) { }
+    constructor(
+        @inject("SaucesRepository")
+        private saucesRepository: ISaucesRepository) { }
 
 
     loadSauces(file: Express.Multer.File): Promise<IImportSauce[]> {
@@ -44,10 +48,10 @@ class ImportSauceUseCase {
         sauces.map(async (sauce) => {
             const { name, price } = sauce;
 
-            const existSauce = this.saucesRepository.findByName(name);
+            const existSauce = await this.saucesRepository.findByName(name);
 
             if (!existSauce) {
-                this.saucesRepository.create({
+                await this.saucesRepository.create({
                     name,
                     price
                 })

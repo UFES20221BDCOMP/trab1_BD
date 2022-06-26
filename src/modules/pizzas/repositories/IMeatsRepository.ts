@@ -6,9 +6,9 @@ interface ICreateMeatsDTO {
 }
 
 interface IMeatsRepository {
-    findByName(name: string): Meat;
-    list(): Meat[];
-    create({ name, price }: ICreateMeatsDTO): void;
+    findByName(name: string): Promise<Meat>;
+    list(): Promise<Meat[]>;
+    create({ name, price }: ICreateMeatsDTO): Promise<void>;
 }
 
 export { IMeatsRepository, ICreateMeatsDTO }

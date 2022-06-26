@@ -1,39 +1,28 @@
+import { getRepository, Repository } from "typeorm";
 import { Meat } from "../../entities/Meat";
 import { IMeatsRepository, ICreateMeatsDTO } from ".././IMeatsRepository";
 
 class MeatsRepository implements IMeatsRepository {
-    private meats: Meat[];
 
-    private static INSTANCE: MeatsRepository;
+    private repository: Repository<Meat>;
 
-    private constructor() {
-        this.meats = [];
+    constructor() {
+        this.repository = getRepository(Meat);
     }
 
-    public static getInstance(): MeatsRepository {
-        if (!MeatsRepository.INSTANCE) { //quando ainda nao tem instancia criada
-            MeatsRepository.INSTANCE = new MeatsRepository();
-        }
-        return MeatsRepository.INSTANCE;
+    async create({ name, price }: ICreateMeatsDTO): Promise<void> {
+        const specification = this.repository.create({ name, price });
+
+        await this.repository.save(specification);
     }
 
-    create({ name, price }: ICreateMeatsDTO): void {
-        const meat = new Meat();
-
-        Object.assign(meat, {
-            name,
-            price,
-        })
-
-        this.meats.push(meat);
+    async list(): Promise<Meat[]> {
+        const meats = await this.repository.find();
+        return meats;
     }
 
-    list(): Meat[] {
-        return this.meats
-    }
-
-    findByName(name: string): Meat {
-        const meat = this.meats.find((meat) => meat.name === name);
+    async findByName(name: string): Promise<Meat> {
+        const meat = this.repository.findOne({ name });
         return meat;
     }
 }

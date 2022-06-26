@@ -1,15 +1,16 @@
 import { Request, Response } from "express";
+import { container } from "tsyringe";
 import { ImportSauceUseCase } from "./ImportSauceUseCase";
 
 
 class ImportSauceController {
 
-    constructor(private importSauceUseCase: ImportSauceUseCase) { }
-
-    handle(request: Request, response: Response): Response {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { file } = request;
 
-        this.importSauceUseCase.execute(file);
+        const importSauceUseCase = container.resolve(ImportSauceUseCase);
+
+        await importSauceUseCase.execute(file);
 
         return response.send();
     }

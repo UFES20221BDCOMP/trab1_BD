@@ -1,16 +1,17 @@
 import { Request, Response } from "express";
 import { CreateMeatUseCase } from "./CreateMeatUseCase";
+import { container } from "tsyringe"
 
 class CreateMeatController {
 
-    constructor(private createMeatUseCase: CreateMeatUseCase) {
 
-    }
 
-    handle(request: Request, response: Response): Response {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { name, price } = request.body;
 
-        this.createMeatUseCase.execute({ name, price });
+        const createMeatUseCase = container.resolve(CreateMeatUseCase);
+
+        await createMeatUseCase.execute({ name, price });
 
         return response.status(201).send();
     }

@@ -1,3 +1,4 @@
+import { inject, injectable } from "tsyringe"
 import { ISaucesRepository } from "../../repositories/ISaucesRepository";
 
 interface IRequest {
@@ -5,8 +6,11 @@ interface IRequest {
     price: number;
 }
 
+@injectable()
 class CreateSauceUseCase {
-    constructor(private saucesRepository: ISaucesRepository) { }
+    constructor(
+        @inject("SaucesRepository")
+        private saucesRepository: ISaucesRepository) { }
 
     async execute({ name, price }: IRequest): Promise<void> {
 

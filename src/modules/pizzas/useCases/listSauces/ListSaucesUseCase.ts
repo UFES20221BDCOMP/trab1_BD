@@ -1,12 +1,16 @@
+import { inject, injectable } from "tsyringe";
 import { Sauce } from "../../entities/Sauce";
 import { ISaucesRepository } from "../../repositories/ISaucesRepository";
 
 
+@injectable()
 class ListSaucesUseCase {
-    constructor(private saucesRepository: ISaucesRepository) { }
+    constructor(
+        @inject("SaucesRepository")
+        private saucesRepository: ISaucesRepository) { }
 
-    execute(): Sauce[] {
-        const sauces = this.saucesRepository.list();
+    async execute(): Promise<Sauce[]> {
+        const sauces = await this.saucesRepository.list();
 
         return sauces;
     }
