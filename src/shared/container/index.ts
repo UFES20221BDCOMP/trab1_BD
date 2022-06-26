@@ -7,6 +7,8 @@ import { ISaucesRepository } from "../../modules/pizzas/repositories/ISaucesRepo
 import { IMeatsRepository } from "../../modules/pizzas/repositories/IMeatsRepository"
 import { ICrustsRepository } from "../../modules/pizzas/repositories/ICrustsRepository"
 import { ISizesRepository } from "../../modules/pizzas/repositories/ISizesRepository"
+import { IOrdersRepository } from "../../modules/pizzas/repositories/IOrdersRepository"
+import { OrdersRepository } from "../../modules/pizzas/repositories/implementations/OrdersRepository"
 
 container.registerSingleton<ISaucesRepository>(
     "SaucesRepository",
@@ -26,4 +28,9 @@ container.registerSingleton<ICrustsRepository>(
 container.registerSingleton<ISizesRepository>(
     "SizesRepository",
     SizesRepository
+);
+
+container.registerSingleton<IOrdersRepository>(
+    "OrdersRepository",
+    OrdersRepository
 );
