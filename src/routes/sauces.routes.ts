@@ -20,6 +20,6 @@ saucesRoutes.post("/", createSauceController.handle);
 
 saucesRoutes.get("/", listSaucesController.handle);
 
-saucesRoutes.post("/import", upload.single("file"), importSauceController.handle)
+saucesRoutes.post("/import", upload.single("file"), importSauceController.handle);
 
 export { saucesRoutes };

@@ -17,8 +17,11 @@ class OrdersRepository implements IOrdersRepository {
 
     async create({ clientName, sauce, meat, crust, size, totalPrice }: ICreateOrderDTO): Promise<void> {
         
-        
 
+        const isThereTheSauce = await this.repository.query('SELECT * FROM "sauces" where sauces.name ILIKE $1', [sauce]);
+        if (!isThereTheSauce){
+            throw new Error("Sorry! Sauce not available today, please try again tomorrow");
+        }
 
         const price1 =  await this.repository.query('SELECT price FROM "sauces" where sauces.name ILIKE $1', [sauce]);
         var s1 = JSON.stringify(price1);
