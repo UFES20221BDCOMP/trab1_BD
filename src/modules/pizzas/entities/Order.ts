@@ -14,8 +14,9 @@ class Order {
     @Column()
     clientName: string;
 
-    @OneToOne(() => Sauce)
-    @JoinColumn()
+    
+    /*@OneToOne(() => Sauce)
+    @JoinColumn()*/
     sauce: Sauce;
 
     @OneToOne(() => Meat)

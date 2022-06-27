@@ -1,8 +1,10 @@
 import { inject, injectable } from "tsyringe"
 import { Crust } from "../../entities/Crust";
 import { Meat } from "../../entities/Meat";
+import { Order } from "../../entities/Order";
 import { Sauce } from "../../entities/Sauce";
 import { Size } from "../../entities/Size";
+import { OrdersRepository } from "../../repositories/implementations/OrdersRepository";
 import { IOrdersRepository } from "../../repositories/IOrdersRepository";
 
 
@@ -36,6 +38,13 @@ class CreateOrderUseCase {
             size,
             totalPrice
         });
+    };
+
+
+    //testando encontrar pedido a partir do nome do cliente:
+    async findByName(clientName: string): Promise<Order[]> {
+        const nomeCliente = await this.ordersRepository.query('SELECT * FROM "Order" as pedido where order.clientName ILIKE $1', [clientName]);
+        return nomeCliente;
     }
 }
 

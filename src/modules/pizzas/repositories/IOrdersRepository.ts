@@ -15,6 +15,7 @@ interface ICreateOrderDTO {
 
 //ações que poderão ser feitas através do Insomnia
 interface IOrdersRepository {
+    query(arg0: string);
     findByName(clientName: string): Promise<Order>;
     list(): Promise<Order[]>;
     create({ clientName, sauce, meat, crust, size, totalPrice }: ICreateOrderDTO): Promise<void>;
