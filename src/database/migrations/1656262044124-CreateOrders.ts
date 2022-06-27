@@ -83,7 +83,9 @@ export class CreateOrders1656259930300 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        //console.log("deu ruim, vou dropar");
         await queryRunner.dropTable("orders");
+
     }
 
 }

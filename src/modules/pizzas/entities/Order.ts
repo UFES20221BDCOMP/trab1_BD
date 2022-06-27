@@ -15,8 +15,8 @@ class Order {
     clientName: string;
 
     
-    /*@OneToOne(() => Sauce)
-    @JoinColumn()*/
+    @OneToOne(() => Sauce)
+    @JoinColumn()
     sauce: Sauce;
 
     @OneToOne(() => Meat)
@@ -32,7 +32,7 @@ class Order {
     size: Size;
 
     @Column()
-    totalPrice: number;
+    totalPrice?: number;
 
     @CreateDateColumn()
     createdAt: Date;

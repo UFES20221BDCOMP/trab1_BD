@@ -41,11 +41,11 @@ class CreateOrderUseCase {
     };
 
 
-    //testando encontrar pedido a partir do nome do cliente:
-    async findByName(clientName: string): Promise<Order[]> {
+    /*testando encontrar pedido a partir do nome do cliente:
+    async procuraPorNome(clientName: string): Promise<Order[]> {
         const nomeCliente = await this.ordersRepository.query('SELECT * FROM "Order" as pedido where order.clientName ILIKE $1', [clientName]);
         return nomeCliente;
-    }
+    }*/
 }
 
 export { CreateOrderUseCase }
