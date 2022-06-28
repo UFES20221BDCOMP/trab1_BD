@@ -81,6 +81,8 @@ yarn typeorm migration:run
 
 5. Abra o Insomnia e carregue o arquivo que está na pasta importInsomnia na raiz, para dentro do Insomnia. Para importar o arquivo, deve-se clicar no botão mostrado na imagem abaixo:
 
+![Isso é uma imagem](https://i.imgur.com/aUg4pWR.png)
+
 6. Para cada uma das pastas entre em import<Nome-da-Instância> e clique em Send para alimentar o banco de dados com os arquivos csv. O importOrders deve necessariamente ser o último a ser importado.
 
 7. Agora, serão realizados os testes. Ao terminar de realizar um dos teste deve-se parar a execução da aplicação do docker e rodar o seguinte comando:
