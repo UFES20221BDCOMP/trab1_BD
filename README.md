@@ -31,8 +31,7 @@ Requisições para a API devem seguir os padrões:
 * **NodeJs**
 * **Yarn**
 
-### É recomendado baixar o Yarn através do pacote de gerenciamento npm, que vem junto do NodeJs.
-###Uma vez que você tenha o npm instalado, você pode escrever o seguinte comando apra instalar e atualizar o Yarn:
+É recomendado baixar o Yarn através do pacote de gerenciamento npm, que vem junto do NodeJs. Uma vez que você tenha o npm instalado, você pode escrever o seguinte comando apra instalar e atualizar o Yarn:
 
 ```
 npm install --global yarn
