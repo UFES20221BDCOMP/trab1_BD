@@ -4,8 +4,8 @@
 https://github.com/AmbulnzLLC/fullstack-challenge/tree/master/backend
 
 Recursos disponíveis para acesso via API:
-* [**Sauces**](#reference/recursos/sauces)
-* [**Meats**](#reference/recursos/meats)
-* [**Crusts**](#reference/recursos/crusts)
-* [**Sizes**](#reference/recursos/sizes)
-* [**Orders**](#reference/recursos/orders)
+* [**Sauces**]
+* [**Meats**]
+* [**Crusts**]
+* [**Sizes**]
+* [**Orders**]
