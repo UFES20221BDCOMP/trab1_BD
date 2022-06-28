@@ -4,7 +4,7 @@ import { Sauce } from './Sauce';
 import { Meat } from './Meat';
 import { Crust } from './Crust';
 import { Size } from './Size';
-// crianção de entidades para pedidos de pizzas
+// criação de entidades para pedidos de pizzas
 @Entity("orders")
 class Order {
 

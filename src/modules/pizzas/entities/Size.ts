@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
-// crianção de entidades para tamanhos de pizzas
+// criação de entidades para tamanhos de pizzas
 @Entity("sizes")
 class Size {
 
@@ -9,5 +9,4 @@ class Size {
     @Column()
     price: number;
 }
-
 export { Size };
