@@ -1,4 +1,4 @@
 <h1>
   hey there
-  <img src="https://imgur.com/a/VgEh14L"/>
+  ![alt text]([http://url/to/img.png](https://imgur.com/a/VgEh14L))
 </h1>
