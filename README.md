@@ -1,5 +1,7 @@
 <h1>Pizzaiola</h1>
 
+![Isso é uma imagem](https://myoctocat.com/assets/images/base-octocat.svg](https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg)
+
 O Trabalho apresentado neste repositório foi baseado no seguinte desafio da empresa AmbulnzLLC: https://github.com/AmbulnzLLC/fullstack-challenge/tree/master/backend
 
 Com o programa rodando seguindo as instruções abaixo, é possivel acessar a documentação da aplicação pelo Swagger através da rota: http://localhost:3333/api-docs/. Nela também é possível realizar testes com o banco de dados.
