@@ -13,13 +13,16 @@ export class RelationContentSauce1656268155698 implements MigrationInterface {
         await queryRunner.query(`ALTER TABLE "orders" DROP COLUMN "crust"`);
         await queryRunner.query(`ALTER TABLE "orders" DROP COLUMN "size"`);
         await queryRunner.query(`ALTER TABLE "orders" ADD "sauceName" character varying`);
-        await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_4c1f187ac9c6ca7575f0303e69a" UNIQUE ("sauceName")`);
+        
+        /* As seguintes queries foram comentadas pois impedem que algum item desses seja adicionado em mais de uma pizza devido ao UNIQUE */
+        //await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_4c1f187ac9c6ca7575f0303e69a" UNIQUE ("sauceName")`);
+        //await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_35d344a2b495981e5b3a0910adc" UNIQUE ("meatName")`);
+        //await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_7172ea74547be37f06eb8140923" UNIQUE ("crustName")`);
+        //await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_b4de6b778dcc7a224838cb679a0" UNIQUE ("sizeName")`);
+        
         await queryRunner.query(`ALTER TABLE "orders" ADD "meatName" character varying`);
-        await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_35d344a2b495981e5b3a0910adc" UNIQUE ("meatName")`);
         await queryRunner.query(`ALTER TABLE "orders" ADD "crustName" character varying`);
-        await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_7172ea74547be37f06eb8140923" UNIQUE ("crustName")`);
         await queryRunner.query(`ALTER TABLE "orders" ADD "sizeName" character varying`);
-        await queryRunner.query(`ALTER TABLE "orders" ADD CONSTRAINT "UQ_b4de6b778dcc7a224838cb679a0" UNIQUE ("sizeName")`);
         await queryRunner.query(`ALTER TABLE "orders" DROP CONSTRAINT "PK_710e2d4957aa5878dfe94e4ac2f"`);
         await queryRunner.query(`ALTER TABLE "orders" DROP COLUMN "id"`);
         await queryRunner.query(`ALTER TABLE "orders" ADD "id" character varying NOT NULL`);

@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Pizzaiola Documentation",
-        "description": "This is an API Rent",
+        "description": "This is an API for a pizzeria. Make your own pizza based on our tasty options! Enjoy!",
         "version": "1.0.0",
         "contact": {
             "email": [
@@ -177,6 +177,35 @@
                 }
             }
         },
+        "/meats/import": {
+            "post": {
+                "tags": [
+                    "Meat"
+                ],
+                "summary": "Upload meats from a file",
+                "description": "Upload a new meat",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
         "/crusts": {
             "post": {
                 "tags": [
@@ -245,6 +274,35 @@
                 }
             }
         },
+        "/crusts/import": {
+            "post": {
+                "tags": [
+                    "Crust"
+                ],
+                "summary": "Upload crusts from a file",
+                "description": "Upload a new crusts",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created hehe"
+                    }
+                }
+            }
+        },
         "/sizes": {
             "post": {
                 "tags": [
@@ -309,6 +367,149 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/sizes/import": {
+            "post": {
+                "tags": [
+                    "Size"
+                ],
+                "summary": "Upload sizes from a file",
+                "description": "Upload a new size :D",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },"/orders": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Create a order",
+                "description": "Create a new order",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "clientName": {
+                                        "type": "string"
+                                    },
+                                    "sauce": {
+                                        "type": "Sauce"
+                                    },
+                                    "meat": {
+                                        "type": "Meat"
+                                    },
+                                    "crust": {
+                                        "type": "Crust"
+                                    },
+                                    "size": {
+                                        "type": "Size"
+                                    }
+                                },
+                                "example": {
+                                    "name": "order name sample",
+                                    "price": "order price sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Order already exists! Try again"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "List all orders",
+                "description": "List all orders",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "clientName": {
+                                                "type": "string"
+                                            },
+                                            "sauce": {
+                                                "type": "Sauce"
+                                            },
+                                            "meat": {
+                                                "type": "Meat"
+                                            },
+                                            "crust": {
+                                                "type": "Crust"
+                                            },
+                                            "size": {
+                                                "type": "Size"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/import": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Upload orders from a file",
+                "description": "Upload a new order :D",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
                     }
                 }
             }

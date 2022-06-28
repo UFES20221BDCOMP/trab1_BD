@@ -64,6 +64,7 @@ class OrdersRepository implements IOrdersRepository {
     //retorna lista dos pedidos registrados
     async list(): Promise<Order[]> {
         const orders = await this.repository.find();
+        console.log(orders);
         return orders;
     }
 
@@ -73,15 +74,6 @@ class OrdersRepository implements IOrdersRepository {
         return order;
     }
 
-    async procuraPorNome(clientName: string): Promise<Order[]> {
-        const nomeCliente = await this.repository.query('SELECT * FROM "Order" as pedido where order.clientName ILIKE $1', [clientName]);
-        return nomeCliente;
-    }
-    
-    /*
-    async getSauce(sauce: Sauce): Promise<Sauce[]> {
-        return this.repository.find({relations: ['sauce']});
-    }*/
 
 }
 
