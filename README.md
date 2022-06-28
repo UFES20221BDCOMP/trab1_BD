@@ -87,7 +87,7 @@ docker-compose down
 
 Para realizar o próximo teste os passos 3, 4 e 6 devem ser repetidos.
 
-### Teste 1: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+### Teste 1: Enviar o seguinte comando JSON em postOrder (copiar e colar) e clicar em Send:
 ```
 {
     "clientName" : "Joao Paulo",
@@ -102,7 +102,7 @@ Este teste deve funcionar pois segue as seguintes regras de negócio:
 * Todos os quatro atributos da pizza (sauce, meat, crust e size) constam no banco de dados como items disponíveis.
 * Todos os quatro atributos da pizza estão preenchidos.
 
-### Teste 2: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+### Teste 2: Enviar o seguinte comando JSON em postOrder (copiar e colar) e clicar em Send:
 ```
 {
     "clientName" : "Jose Ferreira",
@@ -114,7 +114,7 @@ Este teste deve funcionar pois segue as seguintes regras de negócio:
 ```
 Este teste gera erro pois este nome registrado pelo post já foi registrado anteriormente pelo import.
 
-### Teste 3: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+### Teste 3: Enviar o seguinte comando JSON em postOrder (copiar e colar) e clicar em Send:
 ```
 {
     "clientName" : "Marcos",
@@ -126,7 +126,7 @@ Este teste gera erro pois este nome registrado pelo post já foi registrado ante
 ```
 Este teste gera erro pois a sauce pedida não está cadastrada no banco de dados.
 
-### Teste 4: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+### Teste 4: Enviar o seguinte comando JSON em postOrder (copiar e colar) e clicar em Send:
 ```
 {
     "clientName" : "Luis",
@@ -138,7 +138,7 @@ Este teste gera erro pois a sauce pedida não está cadastrada no banco de dados
 ```
 Este teste gera erro pois a meat pedida não está cadastrada no banco de dados.
 
-### Teste 5: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+### Teste 5: Enviar o seguinte comando JSON em postOrder (copiar e colar) e clicar em Send:
 ```
 {
     "clientName" : "Carla",
@@ -150,7 +150,7 @@ Este teste gera erro pois a meat pedida não está cadastrada no banco de dados.
 ```
 Este teste gera erro pois a crust pedida não está cadastrada no banco de dados.
 
-### Teste 6: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+### Teste 6: Enviar o seguinte comando JSON em postOrder (copiar e colar) e clicar em Send:
 ```
 {
     "clientName" : "Margarida",
@@ -162,7 +162,7 @@ Este teste gera erro pois a crust pedida não está cadastrada no banco de dados
 ```
 Este teste gera erro pois o size pedida não está cadastrado no banco de dados.
 
-### Teste 7: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+### Teste 7: Enviar o seguinte comando JSON em postOrder (copiar e colar) e clicar em Send:
 ```
 {
     "clientName" : "Claudio",
@@ -172,3 +172,15 @@ Este teste gera erro pois o size pedida não está cadastrado no banco de dados.
 }
 ```
 Este teste gera erro pois a ausência de um atributo torna o pedido inválido (aplica-se a qualquer atributo faltante).
+
+### Teste 8: Dar post em todos os atributos (postSauce, postMeat, postCrust e postSize) pelo comando JSON já presente no Insomnia. E para testar que nossa aplicação pode atualizar os dados com novos produtos, escreva a seguinte order em postOrder que utilizada todos os produtos novos cadastrados:
+
+```
+{
+    "clientName" : "Marcos Paulo",
+    "sauce":"tomate caseiro",
+    "meat": "calabresa",
+    "crust": "requeijao",
+    "size": "brotinho"
+}
+```
