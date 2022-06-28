@@ -9,3 +9,20 @@ Recursos disponíveis para acesso via API:
 * **Crusts**
 * **Sizes**
 * **Orders**
+
+## Métodos
+Requisições para a API devem seguir os padrões:
+| Método | Descrição |
+|---|---|
+| `GET` | Retorna informações de um ou mais registros. |
+| `POST` | Utilizado para criar um novo registro. |
+| `IMPORT` | Cria diversos registros de vez utilizando um arquivo csv. |
+
+## Respostas
+
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success).|
+| `201` | Requisição executada com sucesso (success).|
+| `401` | Dados de acesso inválidos.|
+| `500` | Falha na execução.|
