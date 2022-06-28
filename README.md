@@ -56,6 +56,7 @@ Ferramenta opcional para visualizar a estrutura do banco de dados e suas instân
 ## Testagem
 
 1. Clone a API deste repositório e abra a aplicação na IDE de sua preferência, recomendamos Visual Studio Code.
+
 2. Abra o terminal já com o caminho correto da aplicação e dê o seguinte comando para instalar o node_modules, que trará as dependências:
 
 ```
@@ -74,5 +75,100 @@ docker-compose up
 yarn typeorm migration:run
 ```
 
-5. Abra o Insomnia e carregue o arquivo que está na pasta importInsomnia na raiz, para dentro do Insomnia
+5. Abra o Insomnia e carregue o arquivo que está na pasta importInsomnia na raiz, para dentro do Insomnia. Para importar o arquivo, deve-se clicar no botão mostrado na imagem abaixo:
 
+6. Para cada uma das pastas entre em import<Nome-da-Instância> e clique em Send para alimentar o banco de dados com os arquivos csv. O importOrders deve necessariamente ser o último a ser importado.
+
+7. Agora, serão realizados os testes. Ao terminar de realizar um dos teste deve-se parar a execução da aplicação do docker e rodar o seguinte comando:
+
+```
+docker-compose down
+```
+
+Para realizar o próximo teste os passos 3, 4 e 6 devem ser repetidos.
+
+### Teste 1: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+```
+{
+    "clientName" : "Joao Paulo",
+    "sauce":"branco",
+    "meat": "camarao",
+    "crust": "cheddar",
+    "size": "pequena"
+}
+```
+Este teste deve funcionar pois segue as seguintes regras de negócio:
+* Nome do cliente não é igual ao nome de nenhum cliente de pedidos já registrados.
+* Todos os quatro atributos da pizza (sauce, meat, crust e size) constam no banco de dados como items disponíveis.
+* Todos os quatro atributos da pizza estão preenchidos.
+
+### Teste 2: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+```
+{
+    "clientName" : "Jose Ferreira",
+    "sauce":"branco",
+    "meat": "camarao",
+    "crust": "cheddar",
+    "size": "pequena"
+}
+```
+Este teste gera erro pois este nome registrado pelo post já foi registrado anteriormente pelo import.
+
+### Teste 3: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+```
+{
+    "clientName" : "Marcos",
+    "sauce":"unknown sauce",
+    "meat": "camarao",
+    "crust": "cheddar",
+    "size": "pequena"
+}
+```
+Este teste gera erro pois a sauce pedida não está cadastrada no banco de dados.
+
+### Teste 4: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+```
+{
+    "clientName" : "Luis",
+    "sauce":"tomate",
+    "meat": "unknown meat",
+    "crust": "cheddar",
+    "size": "pequena"
+}
+```
+Este teste gera erro pois a meat pedida não está cadastrada no banco de dados.
+
+### Teste 5: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+```
+{
+    "clientName" : "Carla",
+    "sauce":"tomate",
+    "meat": "camarao",
+    "crust": "unknown crust",
+    "size": "pequena"
+}
+```
+Este teste gera erro pois a crust pedida não está cadastrada no banco de dados.
+
+### Teste 6: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+```
+{
+    "clientName" : "Margarida",
+    "sauce":"tomate",
+    "meat": "camarao",
+    "crust": "cheddar",
+    "size": "unknown size"
+}
+```
+Este teste gera erro pois o size pedida não está cadastrado no banco de dados.
+
+### Teste 7: Enviar o seguinte comando JSON em postOrder (copiar e colar):
+```
+{
+    "clientName" : "Claudio",
+    "sauce":"tomate",
+    "meat": "camarao",
+    "crust": "cheddar"
+}
+```
+Este teste gera erro pois a ausência de um atributo torna o pedido inválido (aplica-se a qualquer atributo faltante).
