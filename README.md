@@ -1,6 +1,6 @@
 <h1>Pizzaiola</h1>
 
-![Isso é uma imagem](https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg)
+![Isso é uma imagem](https://i.imgur.com/hJ8WSIe.png)
 
 O Trabalho apresentado neste repositório foi baseado no seguinte desafio da empresa AmbulnzLLC: https://github.com/AmbulnzLLC/fullstack-challenge/tree/master/backend
 
