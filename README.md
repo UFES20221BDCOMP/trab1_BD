@@ -36,3 +36,21 @@ Requisições para a API devem seguir os padrões:
 ```
 npm install --global yarn
 ```
+Uma vez instaldo, você pode testar se está tudo certo e verificar a versão com o comando:
+
+```
+yarn --version
+```
+* **Insomnia**
+
+Para instalar o Insomnia basta acessar o link e seguir as recomendações: https://insomnia.rest/download
+
+* **Docker**
+
+Para instalar o Docker basta acessar o link e seguir as recomendações: https://www.docker.com/products/docker-desktop/
+
+* **Beekeeper Community Edition**
+
+Ferramenta opcional para visualizar a estrutura do banco de dados e suas instâncias. Para instalar o Beekeeper basta acessar o link e seguir as recomendações: https://www.beekeeperstudio.io/get
+
+##Testagem
