@@ -55,24 +55,24 @@ Ferramenta opcional para visualizar a estrutura do banco de dados e suas instân
 
 ## Testagem
 
-### 1. Clone a API deste repositório e abra a aplicação na IDE de sua preferência, recomendamos Visual Studio Code.
-### 2. Abra o terminal já com o caminho correto da aplicação e dê o seguinte comando para instalar o node_modules, que trará as dependências:
+1. Clone a API deste repositório e abra a aplicação na IDE de sua preferência, recomendamos Visual Studio Code.
+2. Abra o terminal já com o caminho correto da aplicação e dê o seguinte comando para instalar o node_modules, que trará as dependências:
 
 ```
 yarn
 ```
 
-### 3. Agora para rodar a aplicação, digite o seguinte comando e aguarda até que a mensagem "Server is running bro!" apareça:
+3. Agora para rodar a aplicação, digite o seguinte comando e aguarda até que a mensagem "Server is running bro!" apareça:
 
 ```
 docker-compose up
 ```
 
-### 4. Abra outro terminal e dê o seguinte comando para carregar as migrations:
+4. Abra outro terminal e dê o seguinte comando para carregar as migrations:
 
 ```
 yarn typeorm migration:run
 ```
 
-### 5.
+5. Abra o Insomnia e carregue o arquivo que está na pasta importInsomnia na raiz, para dentro do Insomnia
 
