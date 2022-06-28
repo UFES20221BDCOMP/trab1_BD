@@ -25,3 +25,15 @@ Requisições para a API devem seguir os padrões:
 | `201` | Requisição executada com sucesso (success).|
 | `401` | Dados de acesso inválidos.|
 | `500` | Falha na execução.|
+
+## Requisitos
+
+* **NodeJs**
+* **Yarn**
+
+###É recomendado baixar o Yarn através do pacote de gerenciamento npm, que vem junto do NodeJs.
+###Uma vez que você tenha o npm instalado, você pode escrever o seguinte comando apra instalar e atualizar o Yarn:
+
+```
+npm install --global yarn
+```
