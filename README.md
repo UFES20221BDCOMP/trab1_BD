@@ -2,6 +2,8 @@
 
 ### O Trabalho apresentado neste repositório foi baseado no seguinte desafio da empresa AmbulnzLLC: https://github.com/AmbulnzLLC/fullstack-challenge/tree/master/backend
 
+Com o programa rodando seguindo as instruções abaixo, é possivel acessar a documentação da aplicação pelo Swagger através da rota: http://localhost:3333/api-docs/. Nela também é possível realizar testes com o banco de dados.
+
 Recursos disponíveis para acesso via API:
 * **Sauces**
 * **Meats**
