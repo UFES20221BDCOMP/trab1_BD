@@ -79,7 +79,7 @@ docker-compose up
 yarn typeorm migration:run
 ```
 
-5. Abra o Insomnia e carregue o arquivo que está na pasta importInsomnia na raiz, para dentro do Insomnia. Para importar o arquivo, deve-se clicar no botão mostrado na imagem abaixo:
+5. Abra o Insomnia e carregue o arquivo que está na pasta importInsomnia na raiz, para dentro do Insomnia. Para importar o arquivo, deve-se clicar no botão mostrado na imagem abaixo. Favor verificar se o Insomnia está no modo Debug:
 
 ![Isso é uma imagem](https://i.imgur.com/aUg4pWR.png)
 
