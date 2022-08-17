@@ -6,9 +6,9 @@ O Trabalho apresentado neste repositório foi baseado no seguinte desafio da emp
 
 Com o programa rodando seguindo as instruções abaixo, é possivel acessar a documentação da aplicação pelo Swagger através da rota: http://localhost:3333/api-docs/. Nela também é possível realizar testes com o banco de dados.
 
-## A seguir descreveremos o processo modelagem, implementação, restrições aplicadas e desafios encontrados, e em seguida listaremos os requisitos com sua respectivas formas de instalação e os testes para execução do trabalho.
+A seguir descreveremos o processo modelagem, implementação, restrições aplicadas e desafios encontrados, e em seguida listaremos os requisitos com sua respectivas formas de instalação e os testes para execução do trabalho.
 
-##Modelagem
+## Modelagem
 
 Recursos disponíveis para acesso via API:
 * **Sauces**
@@ -34,7 +34,7 @@ Requisições para a API devem seguir os padrões:
 | `401` | Dados de acesso inválidos.|
 | `500` | Falha na execução.|
 
-##Restrições do Banco de Dados
+## Restrições do Banco de Dados
 
 * Nome do cliente não pode ser igual ao nome de nenhum cliente de pedidos já registrados.
 * Todos os quatro atributos da pizza (sauce, meat, crust e size) devem constar no banco de dados como items disponíveis para serem pedidos.
