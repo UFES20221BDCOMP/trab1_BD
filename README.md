@@ -57,6 +57,16 @@ Para instalar o Docker basta acessar o link e seguir as recomendações: https:/
 
 Ferramenta opcional para visualizar a estrutura do banco de dados e suas instâncias. Para instalar o Beekeeper basta acessar o link e seguir as recomendações: https://www.beekeeperstudio.io/get
 
+* **Modelo .env.local**
+
+Para evitar inconsistências mantendo as credenciais todas no arquivo .env.local na estrutura que segue:
+```
+REACT_APP_DOCKER_USER=docker
+REACT_APP_DOCKER_PASSWORD=trab1
+REACT_APP_DOCKER_DB=trab1
+REACT_APP_DOCKER_CONTAINER_NAME=database_trab1
+```
+
 ## Testagem
 
 1. Clone a API deste repositório e abra a aplicação na IDE de sua preferência, recomendamos Visual Studio Code.
