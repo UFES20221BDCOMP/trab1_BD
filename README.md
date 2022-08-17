@@ -41,6 +41,15 @@ Requisições para a API devem seguir os padrões:
 * Todos os quatro atributos da pizza devem estar preenchidos.
 * Ao cadastrar um atributo da pizza, não é possível cadastrar itens repetidos nos cardápio.
 
+## Implementação
+
+Para realizar a atividade proposta trabalhamos com NodeJs como backend e o Postgresql como nosso banco de dados. O trabalho pode ser rodado tanto com Docker quanto sem ele, porém abaixo descrevemos como executá-lo somente com o Docker via docker-compose, sendo a maneira recomendada. Para acompanhar a manipulação do banco de dados também é proposto a utilização do Isomnia e do Beekeeper.
+
+## Desafios
+
+Foi nossa primeira experiência trabalhando com banco de dados em SQL e backend. Escolhemos um projeto dentre os sugeridos em aula e decidimos incrementá-lo, pois o projeto comandava apenas escolher o sabor da pizza, e no nosso trabalho, o cliente escolhe os ingredientes, montando uma pizza personalizada.
+Seguimos aulas da Rocket Seat e buscamos adequar ao nosso projeto. Além disso, também foi nossa primeira experiência com Docker. Não achamos intuitivo à primeira vista e aos poucos estamos nos familiarizando com ele.
+
 ## Requisitos
 
 * **NodeJs version 14.17.1 **
