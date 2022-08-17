@@ -2,9 +2,9 @@
     "type": "postgres",
     "port": 5432,
     "host": "localhost",
-    "username": "docker",
-    "password": "trab1",
-    "database": "trab1",
+    "username": "process.env.REACT_APP_DOCKER_USER",
+    "password": "process.env.REACT_APP_DOCKER_PASSWORD",
+    "database": "process.env.REACT_APP_DOCKER_DB",
     "migrations": [
         "./src/database/migrations/*.ts"
     ],

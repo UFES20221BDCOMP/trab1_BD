@@ -3,16 +3,17 @@ version: "3.9"
 services:
   database_trab1:
     image: postgres
-    container_name: database_trab1
+    container_name: process.env.REACT_APP_DOCKER_CONTAINER_NAME
     restart: always
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=trab1
-      - POSTGRES_DB=trab1
+      - POSTGRES_USER= process.env.REACT_APP_DOCKER_USER
+      - POSTGRES_PASSWORD= process.env.REACT_APP_DOCKER_PASSWORD
+      - POSTGRES_DB= process.env.REACT_APP_DOCKER_DB
     volumes:
-      - pgdata:/data/postgres
+      - pgdata:/var/lib/postgresql/data/pgdata
+      #- pgdata:/data/postgres
 
   app:
     build: .
