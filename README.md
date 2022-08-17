@@ -32,8 +32,8 @@ Requisições para a API devem seguir os padrões:
 
 ## Requisitos
 
-* **NodeJs**
-* **Yarn**
+* **NodeJs version 14.17.1 **
+* **Yarn version 1.22.10**
 
 É recomendado baixar o Yarn através do pacote de gerenciamento npm, que vem junto do NodeJs. Uma vez que você tenha o npm instalado, você pode escrever o seguinte comando apra instalar e atualizar o Yarn:
 
