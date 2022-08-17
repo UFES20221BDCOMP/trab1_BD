@@ -10,6 +10,8 @@ A seguir descreveremos o processo modelagem, implementação, restrições aplic
 
 ## Modelagem
 
+<img src="src/assets/modelo pizza banco de dados.png" alt="modelagem"  height="100">
+
 Recursos disponíveis para acesso via API:
 * **Sauces**
 * **Meats**
