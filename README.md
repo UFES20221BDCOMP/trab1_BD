@@ -17,7 +17,7 @@ Recursos disponíveis para acesso via API:
 * **Sizes**
 * **Orders**
 
-## Métodos
+### Métodos
 Requisições para a API devem seguir os padrões:
 | Método | Descrição |
 |---|---|
@@ -25,7 +25,7 @@ Requisições para a API devem seguir os padrões:
 | `POST` | Utilizado para criar um novo registro. |
 | `IMPORT` | Cria diversos registros de vez utilizando um arquivo csv. |
 
-## Respostas
+### Respostas
 
 | Código | Descrição |
 |---|---|
